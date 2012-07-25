@@ -1,0 +1,113 @@
+////////////////////////////////////////////////////////////////////////////////
+// $Id$
+// Author: justin.renga@gmail.com
+// jtech Engine
+//
+// Copyright (c) 2012, Justin Renga
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are met:
+//
+// Redistributions of source code must retain the above copyright notice, this
+// list of conditions and the following disclaimer.
+//
+// Redistributions in binary form must reproduce the above copyright notice,
+// this list of conditions and the following disclaimer in the documentation
+// and/or other materials provided with the distribution.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+// THE POSSIBILITY OF SUCH DAMAGE.
+////////////////////////////////////////////////////////////////////////////////
+
+#ifndef JTECH_VECTOR_H
+#define JTECH_VECTOR_H
+
+#include <cmath>
+
+namespace jtech
+{
+	class vector2  // jtech::vector2
+	{
+		public:
+			float x, y;
+			// Constructors
+			vector2() : x(0.0f), y(0.0f) {}
+			vector2(float px) : x(px), y(0.0f) {}
+			vector2(float px, float py) : x(px), y(py) {}
+			vector2(const vector2 &vec) { *this = vec; }
+			// Addition Operator
+			vector2 operator+(const vector2 &vec) { return vector2(x+vec.x, y+vec.y); }
+			// Subtraction Operator
+			vector2 operator-(const vector2 &vec) { return vector2(x-vec.x, y-vec.y); }
+			// Division Operators
+			vector2 operator/(float scalar) { return vector2(x/scalar, y/scalar); }
+			vector2 operator/(int scalar) { return vector2((float)x/scalar, (float)y/scalar); }
+			vector2 operator/(double scalar) { return vector2(x/scalar, y/scalar); }
+			// Mutliplication Operators
+			vector2 operator*(float scalar) { return vector2(x*scalar, y*scalar); }
+			vector2 operator*(int scalar) { return vector2(x*scalar, y*scalar); }
+			vector2 operator*(double scalar) { return vector2(x*scalar, y*scalar); }
+			// Special Multiplcation Operators ( Scalar * vector2 )
+			friend vector2 operator*(float scalar, vector2 &vec) { return vector2(vec.x*scalar, vec.y*scalar); }
+			friend vector2 operator*(int  scalar, vector2 &vec) { return vector2(vec.x*scalar, vec.y*scalar); }
+			friend vector2 operator*(double scalar, vector2 &vec) { return vector2(vec.x*scalar, vec.y*scalar); }
+			// Assignment Operator
+			vector2 operator=(const vector2 &vec)
+			{
+				if (this == &vec)
+					return *this;
+				
+				x = vec.x;
+				y = vec.y;
+				
+				return *this;
+			}
+			// Equality Operator
+			vector2 operator==(const vector2 &vec) { return (x == vec.x && y == vec.y); }
+			// Inequality Operator
+			vector2 operator!=(const vector2 &vec) { return (x != vec.x || y != vec.y); }
+			// Index Operator
+			float operator[](const int index) { return (index%2 == 0 ? x : y); }
+			// Parenthesis Operator
+			float operator()(const int index) { return (index%2 == 0 ? x : y); }
+			// Output Stream Operator
+			friend std::ostream& operator<<(std::ostream &out, vector2 &vec)
+			{ out << "(" << vec.x << ", " << vec.y << ")"; return out; }
+			// Input Stream Operator
+			friend std::istream& operator>>(std::istream &in, vector2 &vec)
+			{ in >> vec.x >> vec.y; return in;}
+			// Normal Functions
+			vector2 normal() { float length = magnitude(); return *this/length; }
+			void normalize() { *this = normal(); }
+			// Magnitude Functions
+			float magnitude() { return sqrt(pow(x,2) + pow(y,2)); }
+			float magnitude_squared() { return (pow(x,2) + pow(y,2)); }
+			// Dot Product Function
+			float dot(vector2 &vec) { return (x*vec.x + y*vec.y); }
+			// Distance Function
+			float distance(vector2 &vec) { return sqrt(pow(vec.x - x,2) + pow(vec.y - y, 2)); }
+			// Dot Product Function (static)
+			static float dot(vector2 &vec1, vector2 &vec2) { return vec1.dot(vec2); }
+			// Distance Function (static)
+			static float distance(const vector2 &vec1, const vector2 &vec2)
+			{ return vec1.distance(vec2); }
+			
+	}; // end vector2 declaration
+	
+	class vector3 // jtech::vector3
+	{
+		public:
+	};
+}
+
+#endif
