@@ -32,6 +32,7 @@
 #ifndef JTECH_VECTOR_H
 #define JTECH_VECTOR_H
 
+#include <iostream>
 #include <cmath>
 
 namespace jtech
@@ -40,6 +41,7 @@ namespace jtech
 	{
 		public:
 			float x, y;
+
 			// Constructors
 			vector2() : x(0.0f), y(0.0f) {}
 			vector2(float px) : x(px), y(0.0f) {}
@@ -66,10 +68,10 @@ namespace jtech
 			{
 				if (this == &vec)
 					return *this;
-				
+
 				x = vec.x;
 				y = vec.y;
-				
+
 				return *this;
 			}
 			// Equality Operator
@@ -99,14 +101,30 @@ namespace jtech
 			// Dot Product Function (static)
 			static float dot(vector2 &vec1, vector2 &vec2) { return vec1.dot(vec2); }
 			// Distance Function (static)
-			static float distance(const vector2 &vec1, const vector2 &vec2)
+			static float distance(vector2 &vec1, vector2 &vec2)
 			{ return vec1.distance(vec2); }
-			
+
+			static const vector2 up;
+			static const vector2 down;
+			static const vector2 left;
+			static const vector2 right;
 	}; // end vector2 declaration
-	
+
 	class vector3 // jtech::vector3
 	{
 		public:
+			float x, y, z;
+
+			static const vector3 up;
+			static const vector3 down;
+			static const vector3 left;
+			static const vector3 right;
+			static const vector3 forward; // out of the screen
+			static const vector3 backward;  // into the screen
+
+			vector3() : x(0.0f), y(0.0f), z(0.0f) {}
+			vector3(float px) : x(px), y(0.0f), z(0.0f) {}
+			vector3(float px, float py, float pz) : x(px), y(py), z(pz) {}
 	};
 }
 
