@@ -108,25 +108,17 @@ namespace jtech
 			
 			vector2 lerp(vector2 &to, float weight) { weight = jtech::util::clampf01(weight);
 													  return ((1 - weight) * (*this)) + weight * to; }
-
-			static const vector2 up;
-			static const vector2 down;
-			static const vector2 left;
-			static const vector2 right;
+													
+			static vector2 up()    {  return vector2(0,1);  }
+			static vector2 down()  {  return vector2(0,-1); }
+			static vector2 left()  {  return vector2(-1,0); }
+			static vector2 right() {  return vector2(1,0);  }
 	}; // end vector2 declaration
 
 	class vector3 // jtech::vector3
 	{
 		public:
 			float x, y, z;
-
-			static const vector3 up;
-			static const vector3 down;
-			static const vector3 left;
-			static const vector3 right;
-			static const vector3 forward; // out of the screen
-			static const vector3 backward;  // into the screen
-
 			// Constructors
 			vector3() : x(0.0f), y(0.0f), z(0.0f) {}
 			vector3(float px) : x(px), y(0.0f), z(0.0f) {}
@@ -194,6 +186,29 @@ namespace jtech
 			// Distance Function (static)
 			static float distance(vector3 &vec1, vector3 &vec2)
 			{ return vec1.distance(vec2); }
+			
+			vector3 cross(vector3 &vec)
+			{
+				return vector3((y * vec.z) - (vec.y * z),
+							   (z * vec.x) - (vec.z * x),
+							   (x * vec.y) - (vec.x * y));
+			}
+			
+			static vector3 cross(vector3 &vec1, vector3 &vec2)
+			{ return vec1.cross(vec2); }
+			
+			vector3 lerp(vector3 &to, float weight)
+			{
+				weight = jtech::util::clampf01(weight);
+				return ((1 - weight) * (*this) + (weight * to));
+			}
+			
+			static vector3 up()       {  return vector3(0,1,0);  }
+			static vector3 down()     {  return vector3(0,-1,0); }
+			static vector3 left()     {  return vector3(-1,0,0); }
+			static vector3 right()    {  return vector3(1,0,0);  }
+			static vector3 forward()  {  return vector3(0,0,-1); }
+			static vector3 backward() {  return vector3(0,0,1);  }
 	};
 }
 
