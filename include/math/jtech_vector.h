@@ -35,6 +35,8 @@
 #include <iostream>
 #include <cmath>
 
+#include <util/jtech_utility.h>
+
 namespace jtech
 {
 	class vector2  // jtech::vector2
@@ -75,9 +77,9 @@ namespace jtech
 				return *this;
 			}
 			// Equality Operator
-			vector2 operator==(const vector2 &vec) { return (x == vec.x && y == vec.y); }
+			bool operator==(const vector2 &vec) { return (x == vec.x && y == vec.y); }
 			// Inequality Operator
-			vector2 operator!=(const vector2 &vec) { return (x != vec.x || y != vec.y); }
+			bool operator!=(const vector2 &vec) { return (x != vec.x || y != vec.y); }
 			// Index Operator
 			float operator[](const int index) { return (index%2 == 0 ? x : y); }
 			// Parenthesis Operator
@@ -103,6 +105,9 @@ namespace jtech
 			// Distance Function (static)
 			static float distance(vector2 &vec1, vector2 &vec2)
 			{ return vec1.distance(vec2); }
+			
+			vector2 lerp(vector2 &to, float weight) { weight = jtech::util::clampf01(weight);
+													  return ((1 - weight) * (*this)) + weight * to; }
 
 			static const vector2 up;
 			static const vector2 down;
@@ -122,9 +127,73 @@ namespace jtech
 			static const vector3 forward; // out of the screen
 			static const vector3 backward;  // into the screen
 
+			// Constructors
 			vector3() : x(0.0f), y(0.0f), z(0.0f) {}
 			vector3(float px) : x(px), y(0.0f), z(0.0f) {}
 			vector3(float px, float py, float pz) : x(px), y(py), z(pz) {}
+			vector3(const vector3 &vec) { *this = vec; }
+			
+			// Addition Operator
+			vector3 operator+(const vector3 &vec) { return vector3(x + vec.x,
+																   y + vec.y,
+																   z + vec.z); }
+			// Subtraction Operator
+			vector3 operator-(const vector3 &vec) { return vector3(x - vec.x,
+																   y - vec.y,
+																   z - vec.z); }
+			// Division Operators
+			vector3 operator/(int    scalar) { return vector3(x/scalar, y/scalar, z/scalar); }
+			vector3 operator/(float  scalar) { return vector3(x/scalar, y/scalar, z/scalar); }
+			vector3 operator/(double scalar) { return vector3(x/scalar, y/scalar, z/scalar); }
+			// Multiplication Operators
+			vector3 operator*(int    scalar) { return vector3(x*scalar, y*scalar, z*scalar); }
+			vector3 operator*(float  scalar) { return vector3(x*scalar, y*scalar, z*scalar); }
+			vector3 operator*(double scalar) { return vector3(x*scalar, y*scalar, z*scalar); }
+			// Special Multiplication Operators
+			friend vector3 operator*(int    scalar, vector3 &vec) { return vector3(vec.x*scalar, vec.y*scalar, vec.z*scalar); }
+			friend vector3 operator*(float  scalar, vector3 &vec) { return vector3(vec.x*scalar, vec.y*scalar, vec.z*scalar); }
+			friend vector3 operator*(double scalar, vector3 &vec) { return vector3(vec.x*scalar, vec.y*scalar, vec.z*scalar); }
+			// Assignment Operator
+			vector3 operator=(const vector3 &vec)
+			{
+				if (this == &vec)
+					return *this;
+				
+				x = vec.x;
+				y = vec.y;
+				z = vec.z;
+				
+				return *this;
+			}
+			// Equality Operator
+			bool operator==(const vector3 &vec) { return (x == vec.x && y == vec.y && z == vec.z); }
+			// Inequality Operator
+			bool operator!=(const vector3 &vec) { return (x != vec.x || y != vec.y || z != vec.z); }
+			// Index Operator
+			float operator[](const int index) { return (index%3 == 0 ? x : index%3 == 1 ? y : z); }
+			// Parenthesis Operator
+			float operator()(const int index) { return (index%3 == 0 ? x : index%3 == 1 ? y : z); }
+			// Output Stream Operator
+			friend std::ostream& operator<<(std::ostream &out, vector3 &vec)
+			{ out << "(" << vec.x << ", " << vec.y << ", " << vec.z << ")"; return out; }
+			// Input Stream Operator
+			friend std::istream& operator>>(std::istream &in, vector3 &vec)
+			{ in >> vec.x >> vec.y >> vec.z; return in;}
+			// Normal Functions
+			vector3 normal() { float length = magnitude(); return *this/length; }
+			void normalize() { *this = normal(); }
+			// Magnitude Functions
+			float magnitude() { return sqrt(pow(x,2) + pow(y,2) + pow(z,2)); }
+			float magnitude_squared() { return (pow(x,2) + pow(y,2) + pow(z,2)); }
+			// Dot Product Function
+			float dot(vector3 &vec) { return (x*vec.x + y*vec.y + z*vec.z); }
+			// Distance Function
+			float distance(vector3 &vec) { return sqrt(pow(vec.x - x,2) + pow(vec.y - y, 2) + pow(vec.z - z, 2)); }
+			// Dot Product Function (static)
+			static float dot(vector3 &vec1, vector3 &vec2) { return vec1.dot(vec2); }
+			// Distance Function (static)
+			static float distance(vector3 &vec1, vector3 &vec2)
+			{ return vec1.distance(vec2); }
 	};
 }
 

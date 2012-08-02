@@ -176,29 +176,29 @@ src/math/jtech_vector.cpp.s:
 	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jtech_vector.cpp.s
 .PHONY : src/math/jtech_vector.cpp.s
 
-src/tests/jtech_vector_test.o: src/tests/jtech_vector_test.cpp.o
-.PHONY : src/tests/jtech_vector_test.o
+src/tests/jtech_math_test.o: src/tests/jtech_math_test.cpp.o
+.PHONY : src/tests/jtech_math_test.o
 
 # target to build an object file
-src/tests/jtech_vector_test.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_vector_test.cpp.o
-.PHONY : src/tests/jtech_vector_test.cpp.o
+src/tests/jtech_math_test.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_math_test.cpp.o
+.PHONY : src/tests/jtech_math_test.cpp.o
 
-src/tests/jtech_vector_test.i: src/tests/jtech_vector_test.cpp.i
-.PHONY : src/tests/jtech_vector_test.i
+src/tests/jtech_math_test.i: src/tests/jtech_math_test.cpp.i
+.PHONY : src/tests/jtech_math_test.i
 
 # target to preprocess a source file
-src/tests/jtech_vector_test.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_vector_test.cpp.i
-.PHONY : src/tests/jtech_vector_test.cpp.i
+src/tests/jtech_math_test.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_math_test.cpp.i
+.PHONY : src/tests/jtech_math_test.cpp.i
 
-src/tests/jtech_vector_test.s: src/tests/jtech_vector_test.cpp.s
-.PHONY : src/tests/jtech_vector_test.s
+src/tests/jtech_math_test.s: src/tests/jtech_math_test.cpp.s
+.PHONY : src/tests/jtech_math_test.s
 
 # target to generate assembly for a file
-src/tests/jtech_vector_test.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_vector_test.cpp.s
-.PHONY : src/tests/jtech_vector_test.cpp.s
+src/tests/jtech_math_test.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_math_test.cpp.s
+.PHONY : src/tests/jtech_math_test.cpp.s
 
 # Help Target
 help:
@@ -216,9 +216,9 @@ help:
 	@echo "... src/math/jtech_vector.o"
 	@echo "... src/math/jtech_vector.i"
 	@echo "... src/math/jtech_vector.s"
-	@echo "... src/tests/jtech_vector_test.o"
-	@echo "... src/tests/jtech_vector_test.i"
-	@echo "... src/tests/jtech_vector_test.s"
+	@echo "... src/tests/jtech_math_test.o"
+	@echo "... src/tests/jtech_math_test.i"
+	@echo "... src/tests/jtech_math_test.s"
 .PHONY : help
 
 
