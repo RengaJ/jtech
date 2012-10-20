@@ -9,8 +9,8 @@ at the following address:
 http://www.github.com/griffinmilsap/hitest/
 
 ***********************
-* UPDATE 10/20/2012:  *
-***********************
+UPDATE 10/20/2012:
+
 Sorry about the long hiatus between the last update and this one. I have been
 doing other things, and lost track of time. Since it is not appropriate to
 write all of what I want to say in the log file, I'll start a small "blog"
