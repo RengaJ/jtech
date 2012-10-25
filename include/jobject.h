@@ -35,13 +35,23 @@
 //
 // DESCRIPTION:
 //
+// The jObject's main function is to be the top-level object that (eventually) all
+// of the components of jTech will inherit from. Thus, every jObject that is created
+// will need to be able to print a description of itself, and provide a method for generating
+// hash codes. However, once the functions have been defined for larger classes (say, for
+// example, the jGraphicsContext), then the subclasses won't need to redefine them, but they
+// can still be printed / logged through the jDebugger class.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 class jObject
 {
 	public:
-		virtual char* toCharArray() = 0;
+		// All of the methods are pure virtual to ensure that the
+		// jObject class itself cannot be instantiated, but
+		// all subclasses of it (which will be most of the classes)
+		// will have these functions available to them.
+		/* virtual char* toCharArray() = 0; */
 		virtual std::string toString() = 0;
 		virtual int hashCode() = 0;
 };
