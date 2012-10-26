@@ -9,6 +9,32 @@ at the following address:
 http://www.github.com/griffinmilsap/hitest/
 
 ***********************
+UPDATE 10/25/2012:
+
+Okay, so first thing's first...I have begun to overhaul the jVectorN set of classes.
+This means a complete redux of jVector2,3 and 4. Why, you might ask? Well, because
+I wasn't too pleased with having all of the implementation inside the header-files,
+so if somebody was going to inherit the class (don't know who, but you never know!),
+I wanted to hide my implementation details. Simply for security reasons.
+
+Secondly, the skeleton for the graphics system has been posted! It's pretty big and
+daunting at first glance, but it should make sense if you know UML. If you don't,
+now is a good time to learn! I would recommend the following site:
+
+http://edn.embarcadero.com/article/31863
+
+It should give you some insight into what I was thinking, though I'm not strictly
+following proper UML standards!
+
+Anywho, hopefully these updates will become more frequent as I get more in gear
+with the development of this engine. This will be in development for a while, so
+keep an eye out for more updates!
+
+Well, that's it for now. Onwards and upwards to the next great challenge!
+
+-- TPM
+
+***********************
 UPDATE 10/20/2012:
 
 Sorry about the long hiatus between the last update and this one. I have been
