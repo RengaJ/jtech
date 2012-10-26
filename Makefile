@@ -152,29 +152,77 @@ jtech.out/fast:
 	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/build
 .PHONY : jtech.out/fast
 
-src/tests/jtech_math_test.o: src/tests/jtech_math_test.cpp.o
-.PHONY : src/tests/jtech_math_test.o
+src/math/jvector2.o: src/math/jvector2.cpp.o
+.PHONY : src/math/jvector2.o
 
 # target to build an object file
-src/tests/jtech_math_test.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_math_test.cpp.o
-.PHONY : src/tests/jtech_math_test.cpp.o
+src/math/jvector2.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector2.cpp.o
+.PHONY : src/math/jvector2.cpp.o
 
-src/tests/jtech_math_test.i: src/tests/jtech_math_test.cpp.i
-.PHONY : src/tests/jtech_math_test.i
+src/math/jvector2.i: src/math/jvector2.cpp.i
+.PHONY : src/math/jvector2.i
 
 # target to preprocess a source file
-src/tests/jtech_math_test.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_math_test.cpp.i
-.PHONY : src/tests/jtech_math_test.cpp.i
+src/math/jvector2.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector2.cpp.i
+.PHONY : src/math/jvector2.cpp.i
 
-src/tests/jtech_math_test.s: src/tests/jtech_math_test.cpp.s
-.PHONY : src/tests/jtech_math_test.s
+src/math/jvector2.s: src/math/jvector2.cpp.s
+.PHONY : src/math/jvector2.s
 
 # target to generate assembly for a file
-src/tests/jtech_math_test.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/tests/jtech_math_test.cpp.s
-.PHONY : src/tests/jtech_math_test.cpp.s
+src/math/jvector2.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector2.cpp.s
+.PHONY : src/math/jvector2.cpp.s
+
+src/math/jvector3.o: src/math/jvector3.cpp.o
+.PHONY : src/math/jvector3.o
+
+# target to build an object file
+src/math/jvector3.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector3.cpp.o
+.PHONY : src/math/jvector3.cpp.o
+
+src/math/jvector3.i: src/math/jvector3.cpp.i
+.PHONY : src/math/jvector3.i
+
+# target to preprocess a source file
+src/math/jvector3.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector3.cpp.i
+.PHONY : src/math/jvector3.cpp.i
+
+src/math/jvector3.s: src/math/jvector3.cpp.s
+.PHONY : src/math/jvector3.s
+
+# target to generate assembly for a file
+src/math/jvector3.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector3.cpp.s
+.PHONY : src/math/jvector3.cpp.s
+
+src/math/jvector4.o: src/math/jvector4.cpp.o
+.PHONY : src/math/jvector4.o
+
+# target to build an object file
+src/math/jvector4.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector4.cpp.o
+.PHONY : src/math/jvector4.cpp.o
+
+src/math/jvector4.i: src/math/jvector4.cpp.i
+.PHONY : src/math/jvector4.i
+
+# target to preprocess a source file
+src/math/jvector4.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector4.cpp.i
+.PHONY : src/math/jvector4.cpp.i
+
+src/math/jvector4.s: src/math/jvector4.cpp.s
+.PHONY : src/math/jvector4.s
+
+# target to generate assembly for a file
+src/math/jvector4.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector4.cpp.s
+.PHONY : src/math/jvector4.cpp.s
 
 # Help Target
 help:
@@ -189,9 +237,15 @@ help:
 	@echo "... jtech.out"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... src/tests/jtech_math_test.o"
-	@echo "... src/tests/jtech_math_test.i"
-	@echo "... src/tests/jtech_math_test.s"
+	@echo "... src/math/jvector2.o"
+	@echo "... src/math/jvector2.i"
+	@echo "... src/math/jvector2.s"
+	@echo "... src/math/jvector3.o"
+	@echo "... src/math/jvector3.i"
+	@echo "... src/math/jvector3.s"
+	@echo "... src/math/jvector4.o"
+	@echo "... src/math/jvector4.i"
+	@echo "... src/math/jvector4.s"
 .PHONY : help
 
 

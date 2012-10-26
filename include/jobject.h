@@ -1,8 +1,3 @@
-#ifndef J_OBJECT_H
-#define J_OBJECT_H
-
-#include <string>
-
 ////////////////////////////////////////////////////////////////////////////////
 // jObject - Header File
 // Author: justin.renga@gmail.com
@@ -43,6 +38,12 @@
 // can still be printed / logged through the jDebugger class.
 //
 ////////////////////////////////////////////////////////////////////////////////
+
+#ifndef J_OBJECT_H
+#define J_OBJECT_H
+
+#include <string>
+#include <sstream>
 
 class jObject
 {

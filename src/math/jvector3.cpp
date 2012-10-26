@@ -35,6 +35,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#include <cmath>
 #include <math/jvector.h>
 
 jVector3::jVector3()
@@ -56,7 +57,7 @@ jVector3::jVector3(float x, float y, float z)
 	mVals[0] = x; mVals[1] = y; mVals[2] = z;
 }
 
-jVector3::jVector3(jVector3 &vector)
+jVector3::jVector3(const jVector3 &vector)
 {
 	*this = vector;
 }
@@ -73,11 +74,11 @@ jVector3::~jVector3()
 // The assignment operator:
 // Sets the LHS of the operator equal to the
 // value of the RHS of the operator
-jVector3 jVector3::operator=(jVector3 &vector)
+jVector3 jVector3::operator=(const jVector3 &vector)
 {
 	// Are we looking at the same jVector3
 	// (as in "mPosition = mPosition;")?
-	if (this == *vector)
+	if (this == &vector)
 		return *this;
 	// If this is from the copy constructor,
 	// the mVals array hasn't yet been initialized
@@ -92,12 +93,89 @@ jVector3 jVector3::operator=(jVector3 &vector)
 	return *this;
 }
 
+float jVector3::operator()(int index) const
+{
+	return mVals[index%3];
+}
+
+float jVector3::operator[](int index) const
+{
+	return mVals[index%3];
+}
+
+bool jVector3::operator==(jVector3 &vector) const
+{
+	return mVals[0] == vector.mVals[0] &&
+		   mVals[1] == vector.mVals[1] &&
+		   mVals[2] == vector.mVals[2];
+}
+
+bool jVector3::operator!=(jVector3 &vector) const
+{
+	return mVals[0] != vector.mVals[0] ||
+		   mVals[1] != vector.mVals[1] ||
+		   mVals[2] != vector.mVals[2];
+}
+
+jVector3 jVector3::operator+(const jVector3 &vector)
+{
+	return jVector3(mVals[0] + vector.mVals[0],
+					mVals[1] + vector.mVals[1],
+					mVals[2] + vector.mVals[2]);
+}
+
+jVector3 jVector3::operator-(const jVector3 &vector)
+{
+	return jVector3(mVals[0] - vector.mVals[0],
+					mVals[1] - vector.mVals[1],
+					mVals[2] - vector.mVals[2]);
+}
+
+jVector3 jVector3::operator*(float scalar)
+{
+	return jVector3(mVals[0] * scalar,
+					mVals[1] * scalar,
+					mVals[2] * scalar);
+}
+
+jVector3 jVector3::operator/(float scalar)
+{
+	return jVector3(mVals[0] / scalar,
+					mVals[1] / scalar,
+					mVals[2] / scalar);
+}
+
+jVector3 jVector3::normalized()
+{
+	return *this/sqrt(magnitude_sqr());
+}
+
+jVector3 jVector3::cross(jVector3 &vector) const
+{
+	return jVector3((mVals[1]*vector.mVals[2])-(mVals[2]*vector.mVals[1]),
+					(mVals[2]*vector.mVals[0])-(mVals[0]*vector.mVals[2]),
+					(mVals[0]*vector.mVals[1])-(mVals[1]*vector.mVals[0]));
+}
+
+float jVector3::dot(jVector3 &vector) const
+{
+	return (mVals[0] * vector.mVals[0]) +
+		   (mVals[1] * vector.mVals[1]) +
+		   (mVals[2] * vector.mVals[2]);
+}
+
+float jVector3::magnitude_sqr() const
+{
+	return (mVals[0]*mVals[0]) + (mVals[1]*mVals[1]) + (mVals[2]*mVals[2]);
+}
+
 // Returns the "string" version of the jVector3
 std::string jVector3::toString()
 {
-	return std::string("(" + mVals[0] +
-					   ", " + mVals[1] +
-					   ", " + mVals[2] + ")");
+	std::stringstream ss;
+	ss << "(" << mVals[0] << ", " << mVals[1] << ", " << mVals[2] << ")";
+
+	return ss.str();
 }
 
 // Returns a hashCode for the current jVector3

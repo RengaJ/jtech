@@ -39,7 +39,7 @@
 #ifndef J_VECTOR_H
 #define J_VECTOR_H
 
-#include <jObject.h>
+#include <jobject.h>
 
 class jVector2 : public jObject
 {
@@ -76,7 +76,7 @@ class jVector3 : public jObject
 			This constructs a jVector3 with the values contained in vector.
 			\param vector The vector to be copied.
 		 */
-		jVector3(jVector3 &vector);
+		jVector3(const jVector3 &vector);
 		// Destructor
 		~jVector3();
 		//! Assignment Operator
@@ -84,7 +84,7 @@ class jVector3 : public jObject
 			\param vector The RHS of the assignment expression.
 			\return A copy of the newly assigned jVector3.
 		 */
-		jVector3 operator=(jVector3 &vector);
+		jVector3 operator=(const jVector3 &vector);
 		// Access Operators
 		float operator()(int index) const;
 		float operator[](int index) const;
@@ -92,15 +92,20 @@ class jVector3 : public jObject
 		bool operator==(jVector3 &vector) const;
 		bool operator!=(jVector3 &vector) const;
 		// Arithmetic Operators
-		jVector3 operator+(jVector3 &vector) const;
-		jVector3 operator-(jVector3 &vector) const;
-		jVector3 operator*(float scalar) const;
-		jVector3 operator/(float scalar) const;
+		jVector3 operator+(const jVector3 &vector);
+		jVector3 operator-(const jVector3 &vector);
+		jVector3 operator*(float scalar);
+		jVector3 operator/(float scalar);
+		// Aritmetic Operations (non-operators)
+		jVector3 normalized();
+		jVector3 cross(jVector3 &vector) const;
+		float dot(jVector3 &vector) const;
+		float magnitude_sqr() const;
 		// Methods inherited from jObject
 		virtual std::string toString();
 		virtual int hashCode();
 	private:
-		float mVals[]; // the data contained within the jVector3
+		float* mVals; // the data contained within the jVector3
 };
 
 class jVector4 : public jObject
