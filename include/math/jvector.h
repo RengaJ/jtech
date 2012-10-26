@@ -1,4 +1,3 @@
-/*!
 ////////////////////////////////////////////////////////////////////////////////
 // jVector - Header File
 // Author: justin.renga@gmail.com
@@ -35,17 +34,69 @@
 // major positional information of a given object (assuming it has a position).
 //
 ////////////////////////////////////////////////////////////////////////////////
-*/
+
 #ifndef J_VECTOR_H
 #define J_VECTOR_H
 
+#include <cmath>
 #include <jobject.h>
 
 class jVector2 : public jObject
 {
 	public:
+		// Constructors
+		//! Default Constructor
+		/*!
+			This defaults the jVector2 to contain the value (0,0).
+		 */
+		jVector2();
+		//! Partial Constructor
+		/*!
+			This partially constructs the jVector2 to contain the value (x,0).
+			\param x The x component of the jVector2.
+		 */
+		jVector2(float x);
+		//! Full Constructor
+		/*!
+			This fully constructs the jVector2 to contain the value (x,y).
+			\param x The x component of the jVector2.
+			\param y The y component of the jVector2.
+		 */
+		jVector2(float x, float y);
+		//! Copy Constructor
+		/*!
+			This constructs a jVector2 with the values contained in vector.
+			\param vector The vector to be copied.
+		 */
+		jVector2(const jVector2 &vector);
+		// Destructor
+		~jVector2();
+		//! Assignment Operator
+		/*!
+			\param vector The RHS of the assignment expression.
+			\return A copy of the newly assigned jVector3.
+		 */
+		jVector2 operator=(const jVector2 &vector);
+		// Access Operators
+		float operator()(int index) const;
+		float operator[](int index) const;
+		// Equality Operators
+		bool operator==(jVector2 &vector) const;
+		bool operator!=(jVector2 &vector) const;
+		// Arithmetic Operators
+		jVector2 operator+(const jVector2 &vector);
+		jVector2 operator-(const jVector2 &vector);
+		jVector2 operator*(float scalar);
+		jVector2 operator/(float scalar);
+		// Aritmetic Operations (non-operators)
+		jVector2 normalized();
+		float cross(jVector2 &vector) const;
+		float dot(jVector2 &vector) const;
+		float magnitude_sqr() const;
 		virtual std::string toString();
 		virtual int hashCode();
+	private:
+		float* mVals;
 };
 
 class jVector3 : public jObject
