@@ -42,4 +42,37 @@
 jMatrix2x2::jMatrix2x2()
 {
 	mMatrix = new float[4];
+	mMatrix[0] = mMatrix[1] = mMatrix[2] = mMatrix[3] = 0.0f;
+}
+
+jMatrix2x2::jMatrix2x2(float matrix[4])
+{
+	mMatrix = new float[4];
+	for (int i = 0; i < 4; i++) mMatrix[i] = matrix[i];
+}
+
+jMatrix2x2::~jMatrix2x2()
+{
+	if (mMatrix)
+	{
+		delete [] mMatrix;
+		mMatrix = NULL;
+	}
+}
+
+std::string jMatrix2x2::toString()
+{
+	std::stringstream ss;
+	ss << "[[" << mMatrix[0] << " " << mMatrix[1] << "]";
+	ss << " [" << mMatrix[2] << " " << mMatrix[3] << "]]";
+
+	return ss.str();
+}
+
+int jMatrix2x2::hashCode()
+{
+	return (mMatrix[0] * mMatrix[0] * 13) +
+		   (mMatrix[1] * mMatrix[1] * 17) -
+		   (mMatrix[2] * mMatrix[2] * 23) +
+		   (mMatrix[3] * mMatrix[3] * 19);
 }

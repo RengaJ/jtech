@@ -152,6 +152,102 @@ jtech.out/fast:
 	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/build
 .PHONY : jtech.out/fast
 
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/math/jmatrix2x2.o: src/math/jmatrix2x2.cpp.o
+.PHONY : src/math/jmatrix2x2.o
+
+# target to build an object file
+src/math/jmatrix2x2.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix2x2.cpp.o
+.PHONY : src/math/jmatrix2x2.cpp.o
+
+src/math/jmatrix2x2.i: src/math/jmatrix2x2.cpp.i
+.PHONY : src/math/jmatrix2x2.i
+
+# target to preprocess a source file
+src/math/jmatrix2x2.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix2x2.cpp.i
+.PHONY : src/math/jmatrix2x2.cpp.i
+
+src/math/jmatrix2x2.s: src/math/jmatrix2x2.cpp.s
+.PHONY : src/math/jmatrix2x2.s
+
+# target to generate assembly for a file
+src/math/jmatrix2x2.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix2x2.cpp.s
+.PHONY : src/math/jmatrix2x2.cpp.s
+
+src/math/jmatrix3x3.o: src/math/jmatrix3x3.cpp.o
+.PHONY : src/math/jmatrix3x3.o
+
+# target to build an object file
+src/math/jmatrix3x3.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix3x3.cpp.o
+.PHONY : src/math/jmatrix3x3.cpp.o
+
+src/math/jmatrix3x3.i: src/math/jmatrix3x3.cpp.i
+.PHONY : src/math/jmatrix3x3.i
+
+# target to preprocess a source file
+src/math/jmatrix3x3.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix3x3.cpp.i
+.PHONY : src/math/jmatrix3x3.cpp.i
+
+src/math/jmatrix3x3.s: src/math/jmatrix3x3.cpp.s
+.PHONY : src/math/jmatrix3x3.s
+
+# target to generate assembly for a file
+src/math/jmatrix3x3.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix3x3.cpp.s
+.PHONY : src/math/jmatrix3x3.cpp.s
+
+src/math/jmatrix4x4.o: src/math/jmatrix4x4.cpp.o
+.PHONY : src/math/jmatrix4x4.o
+
+# target to build an object file
+src/math/jmatrix4x4.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix4x4.cpp.o
+.PHONY : src/math/jmatrix4x4.cpp.o
+
+src/math/jmatrix4x4.i: src/math/jmatrix4x4.cpp.i
+.PHONY : src/math/jmatrix4x4.i
+
+# target to preprocess a source file
+src/math/jmatrix4x4.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix4x4.cpp.i
+.PHONY : src/math/jmatrix4x4.cpp.i
+
+src/math/jmatrix4x4.s: src/math/jmatrix4x4.cpp.s
+.PHONY : src/math/jmatrix4x4.s
+
+# target to generate assembly for a file
+src/math/jmatrix4x4.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix4x4.cpp.s
+.PHONY : src/math/jmatrix4x4.cpp.s
+
 src/math/jvector2.o: src/math/jvector2.cpp.o
 .PHONY : src/math/jvector2.o
 
@@ -237,6 +333,18 @@ help:
 	@echo "... jtech.out"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/math/jmatrix2x2.o"
+	@echo "... src/math/jmatrix2x2.i"
+	@echo "... src/math/jmatrix2x2.s"
+	@echo "... src/math/jmatrix3x3.o"
+	@echo "... src/math/jmatrix3x3.i"
+	@echo "... src/math/jmatrix3x3.s"
+	@echo "... src/math/jmatrix4x4.o"
+	@echo "... src/math/jmatrix4x4.i"
+	@echo "... src/math/jmatrix4x4.s"
 	@echo "... src/math/jvector2.o"
 	@echo "... src/math/jvector2.i"
 	@echo "... src/math/jvector2.s"

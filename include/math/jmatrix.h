@@ -51,8 +51,18 @@ class jMatrix2x2 : public jObject
 	public:
 		jMatrix2x2();
 		jMatrix2x2(float matrix[4]);
-		jMatrix2x2(const jMatrix2x2 &matrix);
+	//	jMatrix2x2(const jMatrix2x2 &matrix);
 		~jMatrix2x2();
+
+		//! Returns the 2x2 identity matrix
+		/*!
+			\return The identity matrix.
+		 */
+		static jMatrix2x2 identity()
+		{
+			float contents[4] = {1.0f, 0.0f, 0.0f, 1.0f};
+			return jMatrix2x2(contents);
+		}
 
 		virtual std::string toString();
 		virtual int hashCode();
@@ -109,3 +119,5 @@ class jCMatrix4x4 : public jObject
 	private:
 		float* mMatrix;
 };
+
+#endif
