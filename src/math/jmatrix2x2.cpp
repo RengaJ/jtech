@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// jMatrix - Header File
+// jMatrix2x2 - Implementation File
 // Author: justin.renga@gmail.com
 // jtech Engine
 //
@@ -35,77 +35,11 @@
 //  o 2x2
 //  o 3x3
 //  o 4x4
-// jMatrixNxN comes in both row and column majors (by default, it is row-major).
-// Column-major matrices are denoted by jCMatrixNxN (jCMatrix3x3, for example).
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef J_MATRIX_H
-#define J_MATRIX_H
+#include <math/jmatrix.h>
 
-#include <cmath>
-#include <jobject.h>
-
-// Row Major 2x2 Matrix
-class jMatrix2x2 : public jObject
+jMatrix2x2::jMatrix2x2()
 {
-	public:
-		jMatrix2x2();
-		jMatrix2x2(float matrix[4]);
-		jMatrix2x2(const jMatrix2x2 &matrix);
-		~jMatrix2x2();
-
-		virtual std::string toString();
-		virtual int hashCode();
-	private:
-		float* mMatrix;
-};
-
-// Row Major 3x3 Matrix
-class jMatrix3x3 : public jObject
-{
-	public:
-		virtual std::string toString();
-		virtual int hashCode();
-	private:
-		float* mMatrix;
-};
-
-// Row Major 4x4 Matrix
-class jMatrix4x4 : public jObject
-{
-	public:
-		virtual std::string toString();
-		virtual int hashCode();
-	private:
-		float* mMatrix;
-};
-
-// Column Major 2x2 Matrix
-class jCMatrix2x2 : public jObject
-{
-	public:
-		virtual std::string toString();
-		virtual int hashCode();
-	private:
-		float* mMatrix;
-};
-
-// Column Major 3x3 Matrix
-class jCMatrix3x3 : public jObject
-{
-	public:
-		virtual std::string toString();
-		virtual int hashCode();
-	private:
-		float* mMatrix;
-};
-
-// Column Major 4x4 Matrix
-class jCMatrix4x4 : public jObject
-{
-	public:
-		virtual std::string toString();
-		virtual int hashCode();
-	private:
-		float* mMatrix;
-};
+	mMatrix = new float[4];
+}

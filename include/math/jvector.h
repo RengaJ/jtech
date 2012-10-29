@@ -74,7 +74,7 @@ class jVector2 : public jObject
 		//! Assignment Operator
 		/*!
 			\param vector The RHS of the assignment expression.
-			\return A copy of the newly assigned jVector3.
+			\return A copy of the newly assigned jVector2.
 		 */
 		jVector2 operator=(const jVector2 &vector);
 		// Access Operators
@@ -161,9 +161,61 @@ class jVector3 : public jObject
 
 class jVector4 : public jObject
 {
-	public:
+		// Constructors
+		//! Default Constructor
+		/*!
+			This defaults the jVector4 to contain the value (0,0,0,0).
+		 */
+		jVector4();
+		//! Partial Constructor
+		/*!
+			This partially constructs the jVector4 to contain the value (x,0,0,0).
+			\param x The x component of the jVector4.
+		 */
+		jVector4(float x);
+		//! Full Constructor
+		/*!
+			This fully constructs the jVector4 to contain the value (x,y,z,w).
+			\param x The x component of the jVector4.
+			\param y The y component of the jVector4.
+			\param z The z component of the jVector4.
+			\param w The w component of the jVector4.
+		 */
+		jVector4(float x, float y, float z, float w);
+		//! Copy Constructor
+		/*!
+			This constructs a jVector4 with the values contained in vector.
+			\param vector The vector to be copied.
+		 */
+		jVector4(const jVector4 &vector);
+		// Destructor
+		~jVector4();
+		//! Assignment Operator
+		/*!
+			\param vector The RHS of the assignment expression.
+			\return A copy of the newly assigned jVector4.
+		 */
+		jVector4 operator=(const jVector4 &vector);
+		// Access Operators
+		float operator()(int index) const;
+		float operator[](int index) const;
+		// Equality Operators
+		bool operator==(jVector4 &vector) const;
+		bool operator!=(jVector4 &vector) const;
+		// Arithmetic Operators
+		jVector4 operator+(const jVector4 &vector);
+		jVector4 operator-(const jVector4 &vector);
+		jVector4 operator*(float scalar);
+		jVector4 operator/(float scalar);
+		// Aritmetic Operations (non-operators)
+		jVector4 normalized();
+		float dot(jVector4 &vector) const;
+		float magnitude_sqr() const;
+		// Methods inherited from jObject
 		virtual std::string toString();
 		virtual int hashCode();
+	private:
+		float* mVals; // the data contained within the jVector4
 };
 
 #endif
