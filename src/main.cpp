@@ -10,6 +10,8 @@
 ///////////////////////////////////////////////////
 
 #include <math/jvector.h>
+#include <jdebug.h>
+
 #include <iostream>
 
 #ifdef _WIN32
@@ -64,20 +66,7 @@ int main()
 	std::cout << vector_3.toString() << std::endl;
 
 	// This will be put into the jDebug namespace/class.
-	#ifdef linux
-		// \033[|DISPLAY_FLAG|[;|COLOR|]m
-		// DISPLAY_FLAG changes how the text will be altered
-		// 1 --> Bold   4 --> Underlined
-		// COLOR is the color to change the tty
-		// m tells console to parse what it just read as color-changing
-		// \033[0m --> resets colors to console default
-
-		// A bold red error message:
-		jVector3 sum = vector_2 + vector_3;
-		std::cout << "\033[1;31mERROR: " << sum << "\033[0m" << std::endl;
-		// A cyan underlined warning message:
-		jVector3 diff2 = vector_3 - vector_2;
-		std::cout << "\033[4;36mWARNING: " << diff2 << "\033[0m" << std::endl;
+/*	#ifdef linux
 	#else
 		// And this is why programming for Windows sucks...
 		HANDLE h_stdout = GetStdHandle( STD_OUTPUT_HANDLE );
@@ -92,7 +81,11 @@ int main()
 		std::cout << vector_1 << std::endl;
 
 		SetConsoleTextAttribute( h_stdout, csbi.wAttributes );
-	#endif
+	#endif */
+
+	jDebug::LogError("An error has occurred!");
+	jDebug::LogWarning("A warning has occurred!");
+	jDebug::Log("A notification has appeared.");
 
 	return 0;
 }

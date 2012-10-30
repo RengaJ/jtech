@@ -152,6 +152,30 @@ jtech.out/fast:
 	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/build
 .PHONY : jtech.out/fast
 
+src/jdebug.o: src/jdebug.cpp.o
+.PHONY : src/jdebug.o
+
+# target to build an object file
+src/jdebug.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/jdebug.cpp.o
+.PHONY : src/jdebug.cpp.o
+
+src/jdebug.i: src/jdebug.cpp.i
+.PHONY : src/jdebug.i
+
+# target to preprocess a source file
+src/jdebug.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/jdebug.cpp.i
+.PHONY : src/jdebug.cpp.i
+
+src/jdebug.s: src/jdebug.cpp.s
+.PHONY : src/jdebug.s
+
+# target to generate assembly for a file
+src/jdebug.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/jdebug.cpp.s
+.PHONY : src/jdebug.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -333,6 +357,9 @@ help:
 	@echo "... jtech.out"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... src/jdebug.o"
+	@echo "... src/jdebug.i"
+	@echo "... src/jdebug.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
