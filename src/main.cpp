@@ -10,8 +10,11 @@
 ///////////////////////////////////////////////////
 
 #include <math/jvector.h>
-
 #include <iostream>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 int main()
 {
@@ -47,6 +50,49 @@ int main()
 	std::cout << vector3.magnitude_sqr() << std::endl;
 	// normalize vector
 	std::cout << (vector3.normalized()).toString() << std::endl;
+
+	////////////////////////////////////////////////////
+
+	// jVector3
+
+	jVector3 vector_1;
+	jVector3 vector_2(5.0f);
+	jVector3 vector_3(1.0f, 2.0f, 3.0f);
+
+	std::cout << vector_1.toString() << std::endl;
+	std::cout << vector_2.toString() << std::endl;
+	std::cout << vector_3.toString() << std::endl;
+
+	// This will be put into the jDebug namespace/class.
+	#ifdef linux
+		// \033[|DISPLAY_FLAG|[;|COLOR|]m
+		// DISPLAY_FLAG changes how the text will be altered
+		// 1 --> Bold   4 --> Underlined
+		// COLOR is the color to change the tty
+		// m tells console to parse what it just read as color-changing
+		// \033[0m --> resets colors to console default
+
+		// A bold red error message:
+		jVector3 sum = vector_2 + vector_3;
+		std::cout << "\033[1;31mERROR: " << sum << "\033[0m" << std::endl;
+		// A cyan underlined warning message:
+		jVector3 diff2 = vector_3 - vector_2;
+		std::cout << "\033[4;36mWARNING: " << diff2 << "\033[0m" << std::endl;
+	#else
+		// And this is why programming for Windows sucks...
+		HANDLE h_stdout = GetStdHandle( STD_OUTPUT_HANDLE );
+		CONSOLE_SCREEN_BUFFER_INFO csbi;
+		GetConsoleScreenBufferInfo( h_stdout, &csbi );
+		// Foreground B G R I
+		// Colors     0 0 1 1
+		// Background B G R I
+		// Colors     0 0 0 1
+		// All together, 00110001 is like this:
+		SetConsoleTextAttribute( h_stdout, 0x31 );
+		std::cout << vector_1 << std::endl;
+
+		SetConsoleTextAttribute( h_stdout, csbi.wAttributes );
+	#endif
 
 	return 0;
 }

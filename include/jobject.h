@@ -45,6 +45,8 @@
 #include <string>
 #include <sstream>
 
+#include <iostream>
+
 class jObject
 {
 	public:
@@ -55,6 +57,8 @@ class jObject
 		/* virtual char* toCharArray() = 0; */
 		virtual std::string toString() = 0;
 		virtual int hashCode() = 0;
+		// Allow EVERY jObject the ability to interact directly with std::ostream (without code duplication)
+		friend std::ostream& operator<<(std::ostream& out, jObject& object) { return out << object.toString(); }
 };
 
 #endif
