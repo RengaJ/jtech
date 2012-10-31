@@ -87,5 +87,12 @@ int main()
 	jDebug::LogWarning("A warning has occurred!");
 	jDebug::Log("A notification has appeared.");
 
+
+	jDebug::AddLogger("main", "logs/main.log");
+	jDebug::LogError("main", "A test error to be found in main.log");
+	jDebug::Log("main", "A test notification to be found in main.log");
+	// Don't forget your cleanup!
+	jDebug::DestructLoggers();
+
 	return 0;
 }

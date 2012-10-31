@@ -37,13 +37,12 @@
 #include <jdebug.h>
 
 //static bool jDebug::bIsTimestamped = false;
-//static std::map<std::string, std::ofstream> mLogStreams =
-//			std::map<std::string, std::ofstream>();
+std::map<std::string, std::ofstream*> jDebug::mLogStreams = std::map<std::string, std::ofstream*>();
 
-void jDebug::Log(char* message)
+/*void jDebug::Log(char* message)
 {
 	std::cout << message << std::endl;
-}
+}*/
 
 void jDebug::Log(std::string message)
 {
@@ -55,14 +54,20 @@ void jDebug::Log(jObject& object)
 	std::cout << object.toString() << std::endl;
 }
 
-void jDebug::LogWarning(char* message)
+void jDebug::Log(std::string logger, std::string message)
+{
+	if (mLogStreams.find(logger) != mLogStreams.end())
+		(*(mLogStreams[logger])) << message << std::endl;
+}
+
+/*void jDebug::LogWarning(char* message)
 {
 	#ifdef _WIN32
 		std::cout << "WARNING: " << message << std::endl;
 	#else
 		std::cout << "\033[4;36mWARNING: " << message << "\033[0m" << std::endl;
 	#endif
-}
+}*/
 
 void jDebug::LogWarning(std::string message)
 {
@@ -82,14 +87,14 @@ void jDebug::LogWarning(jObject& object)
 	#endif
 }
 
-void jDebug::LogError(char* message)
+/*void jDebug::LogError(char* message)
 {
 	#ifdef _WIN32
 		std::cout << "ERROR: " << message << std::endl;
 	#else
 		std::cout << "\033[1;31mERROR: " << message << "\033[0m" << std::endl;
 	#endif
-}
+}*/
 
 void jDebug::LogError(std::string message)
 {
@@ -107,4 +112,40 @@ void jDebug::LogError(jObject& object)
 	#else
 		std::cout << "\033[1;31mERROR: " << object.toString() << "\033[0m" << std::endl;
 	#endif
+}
+
+void jDebug::LogError(std::string logger, std::string message)
+{
+	if (mLogStreams.find(logger) != mLogStreams.end())
+	{
+		#ifdef _WIN32
+			(*(mLogStreams[logger])) << "ERROR: " << message << std::endl;
+		#else
+			(*(mLogStreams[logger])) << "\033[1;31mERROR: " << message << "\033[0m" << std::endl;
+		#endif
+	}
+}
+
+void jDebug::AddLogger(std::string name, std::string filepath)
+{
+	if (mLogStreams.find(name) != mLogStreams.end()) // if mLogStreams contains name
+	{
+		mLogStreams[name]->close();
+		delete mLogStreams[name];
+		mLogStreams[name] = NULL;
+	}
+	mLogStreams[name] = new std::ofstream(filepath.c_str(), std::ios::out);
+}
+
+void jDebug::DestructLoggers()
+{
+	std::map<std::string, std::ofstream*>::iterator itr = mLogStreams.begin();
+	for (itr; itr != mLogStreams.end(); itr++)
+	{
+		itr->second->close();
+		delete itr->second;
+		itr->second = NULL;
+	}
+
+	mLogStreams.clear();
 }
