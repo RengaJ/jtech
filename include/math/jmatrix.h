@@ -51,6 +51,7 @@ class jMatrix2x2 : public jObject
 	public:
 		jMatrix2x2();
 		jMatrix2x2(float matrix[4]);
+		jMatrix2x2(float m00, float m01, float m10, float m11);
 	//	jMatrix2x2(const jMatrix2x2 &matrix);
 		~jMatrix2x2();
 
@@ -63,6 +64,21 @@ class jMatrix2x2 : public jObject
 			float contents[4] = {1.0f, 0.0f, 0.0f, 1.0f};
 			return jMatrix2x2(contents);
 		}
+
+		// Some basic operations
+		jMatrix2x2 operator+(jMatrix &matrix);
+		jMatrix2x2 operator-(jMatrix &matrix);
+		jMatrix2x2 operator*(jMatrix &matrix);
+		jMatrix2x2 operator*(float scalar);
+		jMatrix2x2 operator/(float scalar);
+
+		// Some more advanced methods
+		jMatrix2x2 transpose();
+		jMatrix2x2 inverse();
+		float determinant();
+		bool hasInverse();
+
+		jMatrix2x2 normal();
 
 		virtual std::string toString();
 		virtual int hashCode();

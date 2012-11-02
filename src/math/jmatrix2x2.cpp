@@ -48,7 +48,15 @@ jMatrix2x2::jMatrix2x2()
 jMatrix2x2::jMatrix2x2(float matrix[4])
 {
 	mMatrix = new float[4];
-	for (int i = 0; i < 4; i++) mMatrix[i] = matrix[i];
+	mMatrix[0] = matrix[0]; mMatrix[1] = matrix[1];
+	mMatrix[2] = matrix[2]; mMatrix[3] = matrix[3];
+}
+
+jMatrix2x2::jMatrix2x2(float m00, float m01, float m10, float m11)
+{
+	mMatrix = new float[4];
+	mMatrix[0] = m00; mMatrix[1] = m01;
+	mMatrix[2] = m10; mMatrix[3] = m11;
 }
 
 jMatrix2x2::~jMatrix2x2()
@@ -59,6 +67,17 @@ jMatrix2x2::~jMatrix2x2()
 		mMatrix = NULL;
 	}
 }
+
+// Operators
+// Methods
+
+jMatrix2x2 jMatrix2x2::transpose()
+{
+	return jMatrix2x2(mMatrix[0], mMatrix[2],
+					  mMatrix[1], mMatrix[3]);
+}
+
+
 
 std::string jMatrix2x2::toString()
 {

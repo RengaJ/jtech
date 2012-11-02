@@ -9,3 +9,6 @@ install_manifest.txt
 *.out
 *.vcproj
 *.sln
+*.ncb
+*.user
+*.suo
