@@ -53,26 +53,20 @@
 class jDebug // NOTE: THIS DOES NOT INHERIT FROM jObject, since there is no point to it.
 {
 	public:
-		//static void Log(char* message);
 		static void Log(std::string message);
 		static void Log(jObject& object);
-		//static void Log(std::string logger, char* message);
 		static void Log(std::string logger, std::string message);
-		//static void Log(std::string logger, jObject& object);
+		static void Log(std::string logger, jObject& object);
 
-		//static void LogWarning(char* message);
 		static void LogWarning(std::string message);
 		static void LogWarning(jObject& object);
-		//static void LogWarning(std::string logger, char* message);
-		//static void LogWarning(std::string logger, std::string message);
-		//static void LogWarning(std::string logger, jObject& object);
+		static void LogWarning(std::string logger, std::string message);
+		static void LogWarning(std::string logger, jObject& object);
 
-		//static void LogError(char* message);
 		static void LogError(std::string message);
 		static void LogError(jObject& object);
 		static void LogError(std::string logger, std::string message);
-		//static void LogError(std::string logger, char* message);
-		//static void LogError(std::string logger, jObject& object);
+		static void LogError(std::string logger, jObject& object);
 
 		static void AddLogger(std::string name, std::string filepath);
 		static void DestructLoggers();

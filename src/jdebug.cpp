@@ -36,13 +36,7 @@
 
 #include <jdebug.h>
 
-//static bool jDebug::bIsTimestamped = false;
 std::map<std::string, std::ofstream*> jDebug::mLogStreams = std::map<std::string, std::ofstream*>();
-
-/*void jDebug::Log(char* message)
-{
-	std::cout << message << std::endl;
-}*/
 
 void jDebug::Log(std::string message)
 {
@@ -60,14 +54,11 @@ void jDebug::Log(std::string logger, std::string message)
 		(*(mLogStreams[logger])) << message << std::endl;
 }
 
-/*void jDebug::LogWarning(char* message)
+void jDebug::Log(std::string logger, jObject& object)
 {
-	#ifdef _WIN32
-		std::cout << "WARNING: " << message << std::endl;
-	#else
-		std::cout << "\033[4;36mWARNING: " << message << "\033[0m" << std::endl;
-	#endif
-}*/
+	if (mLogStreams.find(logger) != mLogStreams.end())
+		(*(mLogStreams[logger])) << object << std::endl;
+}
 
 void jDebug::LogWarning(std::string message)
 {
@@ -87,30 +78,45 @@ void jDebug::LogWarning(jObject& object)
 	#endif
 }
 
-/*void jDebug::LogError(char* message)
+void jDebug::LogWarning(std::string logger, std::string message)
 {
-	#ifdef _WIN32
-		std::cout << "ERROR: " << message << std::endl;
-	#else
-		std::cout << "\033[1;31mERROR: " << message << "\033[0m" << std::endl;
-	#endif
-}*/
+	if (mLogStreams.find(logger) != mLogStreams.end())
+	{
+		#ifdef _WIN32
+			(*(mLogStreams[logger])) << "WARNING: " << message << std::endl;
+		#else
+			(*(mLogStreams[logger])) << "\033[4;36mWARNING: " << message << "\033[0m" << std::endl;
+		#endif
+	}
+}
+
+void jDebug::LogWarning(std::string logger, jObject& object)
+{
+	if (mLogStreams.find(logger) != mLogStreams.end())
+	{
+		#ifdef _WIN32
+			(*(mLogStreams[logger])) << "WARNING: " << object << std::endl;
+		#else
+			(*(mLogStreams[logger])) << "\033[4;36mWARNING: " << object << "\033[0m" << std::endl;
+		#endif
+	}
+}
 
 void jDebug::LogError(std::string message)
 {
 	#ifdef _WIN32
-		std::cout << "ERROR: " << message << std::endl;
+		std::cerr << "ERROR: " << message << std::endl;
 	#else
-		std::cout << "\033[1;31mERROR: " << message << "\033[0m" << std::endl;
+		std::cerr << "\033[1;31mERROR: " << message << "\033[0m" << std::endl;
 	#endif
 }
 
 void jDebug::LogError(jObject& object)
 {
 	#ifdef _WIN32
-		std::cout << "ERROR: " << object.toString() << std::endl;
+		std::cerr << "ERROR: " << object.toString() << std::endl;
 	#else
-		std::cout << "\033[1;31mERROR: " << object.toString() << "\033[0m" << std::endl;
+		std::cerr << "\033[1;31mERROR: " << object.toString() << "\033[0m" << std::endl;
 	#endif
 }
 
@@ -124,6 +130,18 @@ void jDebug::LogError(std::string logger, std::string message)
 			(*(mLogStreams[logger])) << "\033[1;31mERROR: " << message << "\033[0m" << std::endl;
 		#endif
 	}
+}
+
+void jDebug::LogError(std::string logger, jObject& object)
+{
+ if (mLogStreams.find(logger) != mLogStreams.end())
+ {
+ 	#ifdef _WIN32
+		(*(mLogStreams[logger])) << "ERROR: " << object << std::endl;
+	#else
+		(*(mLogStreams[logger])) << "\033[1;31mERROR: " << object << "\033[0m" << std::endl;
+	#endif
+ }
 }
 
 void jDebug::AddLogger(std::string name, std::string filepath)

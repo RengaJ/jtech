@@ -35,49 +35,12 @@
 //  o 2x2
 //  o 3x3
 //  o 4x4
+// This is the abstract object that the row and column major matrices
+// inherit from (so a jMesh only needs a jMatrix3x3 instead of a jRMatrix3x3 or
+// a jCMatrix3x3 explicitly, for example)
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <math/jmatrix.h>
-
-jMatrix2x2::jMatrix2x2()
-{
-	mMatrix = new float[4];
-	mMatrix[0] = mMatrix[1] = mMatrix[2] = mMatrix[3] = 0.0f;
-}
-
-jMatrix2x2::jMatrix2x2(float matrix[4])
-{
-	mMatrix = new float[4];
-	mMatrix[0] = matrix[0]; mMatrix[1] = matrix[1];
-	mMatrix[2] = matrix[2]; mMatrix[3] = matrix[3];
-}
-
-jMatrix2x2::jMatrix2x2(float m00, float m01, float m10, float m11)
-{
-	mMatrix = new float[4];
-	mMatrix[0] = m00; mMatrix[1] = m01;
-	mMatrix[2] = m10; mMatrix[3] = m11;
-}
-
-jMatrix2x2::~jMatrix2x2()
-{
-	if (mMatrix)
-	{
-		delete [] mMatrix;
-		mMatrix = NULL;
-	}
-}
-
-// Operators
-// Methods
-
-jMatrix2x2 jMatrix2x2::transpose()
-{
-	return jMatrix2x2(mMatrix[0], mMatrix[2],
-					  mMatrix[1], mMatrix[3]);
-}
-
-
 
 std::string jMatrix2x2::toString()
 {

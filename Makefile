@@ -200,149 +200,149 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/math/jmatrix2x2.o: src/math/jmatrix2x2.cpp.o
-.PHONY : src/math/jmatrix2x2.o
+src/math/matrix/jmatrix2x2.o: src/math/matrix/jmatrix2x2.cpp.o
+.PHONY : src/math/matrix/jmatrix2x2.o
 
 # target to build an object file
-src/math/jmatrix2x2.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix2x2.cpp.o
-.PHONY : src/math/jmatrix2x2.cpp.o
+src/math/matrix/jmatrix2x2.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix2x2.cpp.o
+.PHONY : src/math/matrix/jmatrix2x2.cpp.o
 
-src/math/jmatrix2x2.i: src/math/jmatrix2x2.cpp.i
-.PHONY : src/math/jmatrix2x2.i
+src/math/matrix/jmatrix2x2.i: src/math/matrix/jmatrix2x2.cpp.i
+.PHONY : src/math/matrix/jmatrix2x2.i
 
 # target to preprocess a source file
-src/math/jmatrix2x2.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix2x2.cpp.i
-.PHONY : src/math/jmatrix2x2.cpp.i
+src/math/matrix/jmatrix2x2.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix2x2.cpp.i
+.PHONY : src/math/matrix/jmatrix2x2.cpp.i
 
-src/math/jmatrix2x2.s: src/math/jmatrix2x2.cpp.s
-.PHONY : src/math/jmatrix2x2.s
+src/math/matrix/jmatrix2x2.s: src/math/matrix/jmatrix2x2.cpp.s
+.PHONY : src/math/matrix/jmatrix2x2.s
 
 # target to generate assembly for a file
-src/math/jmatrix2x2.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix2x2.cpp.s
-.PHONY : src/math/jmatrix2x2.cpp.s
+src/math/matrix/jmatrix2x2.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix2x2.cpp.s
+.PHONY : src/math/matrix/jmatrix2x2.cpp.s
 
-src/math/jmatrix3x3.o: src/math/jmatrix3x3.cpp.o
-.PHONY : src/math/jmatrix3x3.o
+src/math/matrix/jmatrix3x3.o: src/math/matrix/jmatrix3x3.cpp.o
+.PHONY : src/math/matrix/jmatrix3x3.o
 
 # target to build an object file
-src/math/jmatrix3x3.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix3x3.cpp.o
-.PHONY : src/math/jmatrix3x3.cpp.o
+src/math/matrix/jmatrix3x3.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix3x3.cpp.o
+.PHONY : src/math/matrix/jmatrix3x3.cpp.o
 
-src/math/jmatrix3x3.i: src/math/jmatrix3x3.cpp.i
-.PHONY : src/math/jmatrix3x3.i
+src/math/matrix/jmatrix3x3.i: src/math/matrix/jmatrix3x3.cpp.i
+.PHONY : src/math/matrix/jmatrix3x3.i
 
 # target to preprocess a source file
-src/math/jmatrix3x3.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix3x3.cpp.i
-.PHONY : src/math/jmatrix3x3.cpp.i
+src/math/matrix/jmatrix3x3.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix3x3.cpp.i
+.PHONY : src/math/matrix/jmatrix3x3.cpp.i
 
-src/math/jmatrix3x3.s: src/math/jmatrix3x3.cpp.s
-.PHONY : src/math/jmatrix3x3.s
+src/math/matrix/jmatrix3x3.s: src/math/matrix/jmatrix3x3.cpp.s
+.PHONY : src/math/matrix/jmatrix3x3.s
 
 # target to generate assembly for a file
-src/math/jmatrix3x3.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix3x3.cpp.s
-.PHONY : src/math/jmatrix3x3.cpp.s
+src/math/matrix/jmatrix3x3.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix3x3.cpp.s
+.PHONY : src/math/matrix/jmatrix3x3.cpp.s
 
-src/math/jmatrix4x4.o: src/math/jmatrix4x4.cpp.o
-.PHONY : src/math/jmatrix4x4.o
+src/math/matrix/jmatrix4x4.o: src/math/matrix/jmatrix4x4.cpp.o
+.PHONY : src/math/matrix/jmatrix4x4.o
 
 # target to build an object file
-src/math/jmatrix4x4.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix4x4.cpp.o
-.PHONY : src/math/jmatrix4x4.cpp.o
+src/math/matrix/jmatrix4x4.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix4x4.cpp.o
+.PHONY : src/math/matrix/jmatrix4x4.cpp.o
 
-src/math/jmatrix4x4.i: src/math/jmatrix4x4.cpp.i
-.PHONY : src/math/jmatrix4x4.i
+src/math/matrix/jmatrix4x4.i: src/math/matrix/jmatrix4x4.cpp.i
+.PHONY : src/math/matrix/jmatrix4x4.i
 
 # target to preprocess a source file
-src/math/jmatrix4x4.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix4x4.cpp.i
-.PHONY : src/math/jmatrix4x4.cpp.i
+src/math/matrix/jmatrix4x4.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix4x4.cpp.i
+.PHONY : src/math/matrix/jmatrix4x4.cpp.i
 
-src/math/jmatrix4x4.s: src/math/jmatrix4x4.cpp.s
-.PHONY : src/math/jmatrix4x4.s
+src/math/matrix/jmatrix4x4.s: src/math/matrix/jmatrix4x4.cpp.s
+.PHONY : src/math/matrix/jmatrix4x4.s
 
 # target to generate assembly for a file
-src/math/jmatrix4x4.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jmatrix4x4.cpp.s
-.PHONY : src/math/jmatrix4x4.cpp.s
+src/math/matrix/jmatrix4x4.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/matrix/jmatrix4x4.cpp.s
+.PHONY : src/math/matrix/jmatrix4x4.cpp.s
 
-src/math/jvector2.o: src/math/jvector2.cpp.o
-.PHONY : src/math/jvector2.o
+src/math/vector/jvector2.o: src/math/vector/jvector2.cpp.o
+.PHONY : src/math/vector/jvector2.o
 
 # target to build an object file
-src/math/jvector2.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector2.cpp.o
-.PHONY : src/math/jvector2.cpp.o
+src/math/vector/jvector2.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector2.cpp.o
+.PHONY : src/math/vector/jvector2.cpp.o
 
-src/math/jvector2.i: src/math/jvector2.cpp.i
-.PHONY : src/math/jvector2.i
+src/math/vector/jvector2.i: src/math/vector/jvector2.cpp.i
+.PHONY : src/math/vector/jvector2.i
 
 # target to preprocess a source file
-src/math/jvector2.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector2.cpp.i
-.PHONY : src/math/jvector2.cpp.i
+src/math/vector/jvector2.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector2.cpp.i
+.PHONY : src/math/vector/jvector2.cpp.i
 
-src/math/jvector2.s: src/math/jvector2.cpp.s
-.PHONY : src/math/jvector2.s
+src/math/vector/jvector2.s: src/math/vector/jvector2.cpp.s
+.PHONY : src/math/vector/jvector2.s
 
 # target to generate assembly for a file
-src/math/jvector2.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector2.cpp.s
-.PHONY : src/math/jvector2.cpp.s
+src/math/vector/jvector2.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector2.cpp.s
+.PHONY : src/math/vector/jvector2.cpp.s
 
-src/math/jvector3.o: src/math/jvector3.cpp.o
-.PHONY : src/math/jvector3.o
+src/math/vector/jvector3.o: src/math/vector/jvector3.cpp.o
+.PHONY : src/math/vector/jvector3.o
 
 # target to build an object file
-src/math/jvector3.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector3.cpp.o
-.PHONY : src/math/jvector3.cpp.o
+src/math/vector/jvector3.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector3.cpp.o
+.PHONY : src/math/vector/jvector3.cpp.o
 
-src/math/jvector3.i: src/math/jvector3.cpp.i
-.PHONY : src/math/jvector3.i
+src/math/vector/jvector3.i: src/math/vector/jvector3.cpp.i
+.PHONY : src/math/vector/jvector3.i
 
 # target to preprocess a source file
-src/math/jvector3.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector3.cpp.i
-.PHONY : src/math/jvector3.cpp.i
+src/math/vector/jvector3.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector3.cpp.i
+.PHONY : src/math/vector/jvector3.cpp.i
 
-src/math/jvector3.s: src/math/jvector3.cpp.s
-.PHONY : src/math/jvector3.s
+src/math/vector/jvector3.s: src/math/vector/jvector3.cpp.s
+.PHONY : src/math/vector/jvector3.s
 
 # target to generate assembly for a file
-src/math/jvector3.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector3.cpp.s
-.PHONY : src/math/jvector3.cpp.s
+src/math/vector/jvector3.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector3.cpp.s
+.PHONY : src/math/vector/jvector3.cpp.s
 
-src/math/jvector4.o: src/math/jvector4.cpp.o
-.PHONY : src/math/jvector4.o
+src/math/vector/jvector4.o: src/math/vector/jvector4.cpp.o
+.PHONY : src/math/vector/jvector4.o
 
 # target to build an object file
-src/math/jvector4.cpp.o:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector4.cpp.o
-.PHONY : src/math/jvector4.cpp.o
+src/math/vector/jvector4.cpp.o:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector4.cpp.o
+.PHONY : src/math/vector/jvector4.cpp.o
 
-src/math/jvector4.i: src/math/jvector4.cpp.i
-.PHONY : src/math/jvector4.i
+src/math/vector/jvector4.i: src/math/vector/jvector4.cpp.i
+.PHONY : src/math/vector/jvector4.i
 
 # target to preprocess a source file
-src/math/jvector4.cpp.i:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector4.cpp.i
-.PHONY : src/math/jvector4.cpp.i
+src/math/vector/jvector4.cpp.i:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector4.cpp.i
+.PHONY : src/math/vector/jvector4.cpp.i
 
-src/math/jvector4.s: src/math/jvector4.cpp.s
-.PHONY : src/math/jvector4.s
+src/math/vector/jvector4.s: src/math/vector/jvector4.cpp.s
+.PHONY : src/math/vector/jvector4.s
 
 # target to generate assembly for a file
-src/math/jvector4.cpp.s:
-	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/jvector4.cpp.s
-.PHONY : src/math/jvector4.cpp.s
+src/math/vector/jvector4.cpp.s:
+	$(MAKE) -f CMakeFiles/jtech.out.dir/build.make CMakeFiles/jtech.out.dir/src/math/vector/jvector4.cpp.s
+.PHONY : src/math/vector/jvector4.cpp.s
 
 # Help Target
 help:
@@ -363,24 +363,24 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/math/jmatrix2x2.o"
-	@echo "... src/math/jmatrix2x2.i"
-	@echo "... src/math/jmatrix2x2.s"
-	@echo "... src/math/jmatrix3x3.o"
-	@echo "... src/math/jmatrix3x3.i"
-	@echo "... src/math/jmatrix3x3.s"
-	@echo "... src/math/jmatrix4x4.o"
-	@echo "... src/math/jmatrix4x4.i"
-	@echo "... src/math/jmatrix4x4.s"
-	@echo "... src/math/jvector2.o"
-	@echo "... src/math/jvector2.i"
-	@echo "... src/math/jvector2.s"
-	@echo "... src/math/jvector3.o"
-	@echo "... src/math/jvector3.i"
-	@echo "... src/math/jvector3.s"
-	@echo "... src/math/jvector4.o"
-	@echo "... src/math/jvector4.i"
-	@echo "... src/math/jvector4.s"
+	@echo "... src/math/matrix/jmatrix2x2.o"
+	@echo "... src/math/matrix/jmatrix2x2.i"
+	@echo "... src/math/matrix/jmatrix2x2.s"
+	@echo "... src/math/matrix/jmatrix3x3.o"
+	@echo "... src/math/matrix/jmatrix3x3.i"
+	@echo "... src/math/matrix/jmatrix3x3.s"
+	@echo "... src/math/matrix/jmatrix4x4.o"
+	@echo "... src/math/matrix/jmatrix4x4.i"
+	@echo "... src/math/matrix/jmatrix4x4.s"
+	@echo "... src/math/vector/jvector2.o"
+	@echo "... src/math/vector/jvector2.i"
+	@echo "... src/math/vector/jvector2.s"
+	@echo "... src/math/vector/jvector3.o"
+	@echo "... src/math/vector/jvector3.i"
+	@echo "... src/math/vector/jvector3.s"
+	@echo "... src/math/vector/jvector4.o"
+	@echo "... src/math/vector/jvector4.i"
+	@echo "... src/math/vector/jvector4.s"
 .PHONY : help
 
 

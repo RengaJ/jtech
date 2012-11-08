@@ -44,48 +44,64 @@
 
 #include <cmath>
 #include <jobject.h>
+#include <math/jvector.h>
 
-// Row Major 2x2 Matrix
 class jMatrix2x2 : public jObject
 {
 	public:
-		jMatrix2x2();
-		jMatrix2x2(float matrix[4]);
-		jMatrix2x2(float m00, float m01, float m10, float m11);
-	//	jMatrix2x2(const jMatrix2x2 &matrix);
-		~jMatrix2x2();
+		virtual ~jMatrix2x2() = 0;
 
-		//! Returns the 2x2 identity matrix
-		/*!
-			\return The identity matrix.
-		 */
-		static jMatrix2x2 identity()
-		{
-			float contents[4] = {1.0f, 0.0f, 0.0f, 1.0f};
-			return jMatrix2x2(contents);
-		}
-
-		// Some basic operations
-		jMatrix2x2 operator+(jMatrix &matrix);
-		jMatrix2x2 operator-(jMatrix &matrix);
-		jMatrix2x2 operator*(jMatrix &matrix);
-		jMatrix2x2 operator*(float scalar);
-		jMatrix2x2 operator/(float scalar);
-
-		// Some more advanced methods
-		jMatrix2x2 transpose();
-		jMatrix2x2 inverse();
-		float determinant();
-		bool hasInverse();
-
-		jMatrix2x2 normal();
+		virtual float determinant() = 0;
+		virtual bool hasInverse() = 0;
 
 		virtual std::string toString();
 		virtual int hashCode();
-	private:
+	protected:
 		float* mMatrix;
 };
 
+// Row-Major Matrix
+class jRMatrix2x2 : public jMatrix2x2
+{
+	jRMatrix2x2();
+	jRMatrix2x2(float matrix[4]);
+	jRMatrix2x2(float m00, float m01,
+				float m10, float m11);
+	jRMatrix2x2(jVector2 row1, jVector2 row2);
+	jRMatrix2x2(jRMatrix2x2 &matrix);
+	~jRMatrix2x2();
+
+	virtual float determinant();
+	virtual bool hasInverse();
+
+	jRMatrix2x2 operator*(float scalar);
+	jRMatrix2x2 operator*(jRMatrix2x2 &matrix);
+
+	jRMatrix2x2 operator+(jRMatrix2x2 &matrix);
+	jRMatrix2x2 operator-(jRMatrix2x2 &matrix);
+};
+
+// Column-Major Matrix
+class jCMatrix2x2 : public jMatrix2x2
+{
+	jCMatrix2x2();
+	jCMatrix2x2(float matrix[4]);
+	jCMatrix2x2(float m00, float m01,
+				float m10, float m11);
+	jCMatrix2x2(jVector2 col1, jVector2 col2);
+	jCMatrix2x2(jCMatrix2x2 &matrix);
+	~jCMatrix2x2();
+
+	virtual float determinant();
+	virtual bool hasInverse();
+
+	jCMatrix2x2 operator*(float scalar);
+	jCMatrix2x2 operator*(jCMatrix2x2 &matrix);
+
+	jCMatrix2x2 operator+(jCMatrix2x2 &matrix);
+	jCMatrix2x2 operator-(jCMatrix2x2 &matrix);
+};
+/*
 // Row Major 3x3 Matrix
 class jMatrix3x3 : public jObject
 {
@@ -135,5 +151,5 @@ class jCMatrix4x4 : public jObject
 	private:
 		float* mMatrix;
 };
-
+*/
 #endif
