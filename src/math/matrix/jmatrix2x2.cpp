@@ -42,19 +42,28 @@
 
 #include <math/jmatrix.h>
 
+jMatrix2x2::~jMatrix2x2()
+{
+	if (mMatrix != NULL)
+	{
+		delete [] mMatrix;
+		mMatrix = NULL;
+	}
+}
+
 std::string jMatrix2x2::toString()
 {
 	std::stringstream ss;
-	ss << "[[" << mMatrix[0] << " " << mMatrix[1] << "]";
-	ss << " [" << mMatrix[2] << " " << mMatrix[3] << "]]";
+	ss << "[[" << mMatrix[0][0] << " " << mMatrix[0][1] << "]";
+	ss << " [" << mMatrix[1][0] << " " << mMatrix[1][1] << "]]";
 
 	return ss.str();
 }
 
 int jMatrix2x2::hashCode()
 {
-	return (mMatrix[0] * mMatrix[0] * 13) +
-		   (mMatrix[1] * mMatrix[1] * 17) -
-		   (mMatrix[2] * mMatrix[2] * 23) +
-		   (mMatrix[3] * mMatrix[3] * 19);
+	return (mMatrix[0][0] * mMatrix[0][0] * 13) +
+		   (mMatrix[0][1] * mMatrix[0][1] * 17) -
+		   (mMatrix[1][0] * mMatrix[1][0] * 23) +
+		   (mMatrix[1][1] * mMatrix[1][1] * 19);
 }

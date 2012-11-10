@@ -49,7 +49,7 @@
 class jMatrix2x2 : public jObject
 {
 	public:
-		virtual ~jMatrix2x2() = 0;
+		~jMatrix2x2();
 
 		virtual float determinant() = 0;
 		virtual bool hasInverse() = 0;
@@ -57,49 +57,63 @@ class jMatrix2x2 : public jObject
 		virtual std::string toString();
 		virtual int hashCode();
 	protected:
-		float* mMatrix;
+		jVector2* mMatrix;
 };
 
 // Row-Major Matrix
 class jRMatrix2x2 : public jMatrix2x2
 {
-	jRMatrix2x2();
-	jRMatrix2x2(float matrix[4]);
-	jRMatrix2x2(float m00, float m01,
-				float m10, float m11);
-	jRMatrix2x2(jVector2 row1, jVector2 row2);
-	jRMatrix2x2(jRMatrix2x2 &matrix);
-	~jRMatrix2x2();
+	public:
+		jRMatrix2x2();
+		jRMatrix2x2(float matrix[4]);
+		jRMatrix2x2(float m00, float m01,
+					float m10, float m11);
+		jRMatrix2x2(jVector2 row1, jVector2 row2);
+		jRMatrix2x2(const jRMatrix2x2 &matrix);
+		virtual ~jRMatrix2x2();
 
-	virtual float determinant();
-	virtual bool hasInverse();
+		virtual float determinant();
+		virtual bool hasInverse();
 
-	jRMatrix2x2 operator*(float scalar);
-	jRMatrix2x2 operator*(jRMatrix2x2 &matrix);
+		jRMatrix2x2 inverse();
 
-	jRMatrix2x2 operator+(jRMatrix2x2 &matrix);
-	jRMatrix2x2 operator-(jRMatrix2x2 &matrix);
+		jRMatrix2x2 operator*(float scalar);
+		jRMatrix2x2 operator*(jRMatrix2x2 &matrix);
+
+		jRMatrix2x2 operator+(jRMatrix2x2 &matrix);
+		jRMatrix2x2 operator-(jRMatrix2x2 &matrix);
+
+		jRMatrix2x2 operator=(const jRMatrix2x2 &matrix);
+
+		jRMatrix2x2 operator-();
+		jRMatrix2x2 operator/(float scalar);
+
+		jVector2 operator[](int index) const;
+		jVector2 operator()(int index) const;
 };
 
 // Column-Major Matrix
 class jCMatrix2x2 : public jMatrix2x2
 {
-	jCMatrix2x2();
-	jCMatrix2x2(float matrix[4]);
-	jCMatrix2x2(float m00, float m01,
-				float m10, float m11);
-	jCMatrix2x2(jVector2 col1, jVector2 col2);
-	jCMatrix2x2(jCMatrix2x2 &matrix);
-	~jCMatrix2x2();
+	public:
+		jCMatrix2x2();
+		jCMatrix2x2(float matrix[4]);
+		jCMatrix2x2(float m00, float m01,
+					float m10, float m11);
+		jCMatrix2x2(jVector2 col1, jVector2 col2);
+		jCMatrix2x2(jCMatrix2x2 &matrix);
+		virtual ~jCMatrix2x2();
 
-	virtual float determinant();
-	virtual bool hasInverse();
+		virtual float determinant();
+		virtual bool hasInverse();
 
-	jCMatrix2x2 operator*(float scalar);
-	jCMatrix2x2 operator*(jCMatrix2x2 &matrix);
+		jCMatrix2x2 operator*(float scalar);
+		jCMatrix2x2 operator*(jCMatrix2x2 &matrix);
 
-	jCMatrix2x2 operator+(jCMatrix2x2 &matrix);
-	jCMatrix2x2 operator-(jCMatrix2x2 &matrix);
+		jCMatrix2x2 operator+(jCMatrix2x2 &matrix);
+		jCMatrix2x2 operator-(jCMatrix2x2 &matrix);
+
+		jCMatrix2x2 operator=(jCMatrix2x2 &matrix);
 };
 /*
 // Row Major 3x3 Matrix

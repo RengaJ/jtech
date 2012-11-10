@@ -122,16 +122,20 @@ jVector2 jVector2::operator/(float scalar)
 	return jVector2(mVals[0] / scalar,
 					mVals[1] / scalar);
 }
+jVector2 jVector2::operator-()
+{
+	return jVector2(-mVals[0], -mVals[1]);
+}
 // Aritmetic Operations (non-operators)
 jVector2 jVector2::normalized()
 {
 	return *this/sqrt(magnitude_sqr());
 }
-float jVector2::cross(jVector2 &vector) const
+float jVector2::cross(jVector2 vector) const
 {
 	return (mVals[0] * vector.mVals[1]) - (mVals[1] * vector.mVals[0]);
 }
-float jVector2::dot(jVector2 &vector) const
+float jVector2::dot(jVector2 vector) const
 {
 	return (mVals[0] * vector.mVals[0]) + (mVals[1] * vector.mVals[1]);
 }

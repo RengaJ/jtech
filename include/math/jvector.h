@@ -88,10 +88,13 @@ class jVector2 : public jObject
 		jVector2 operator-(const jVector2 &vector);
 		jVector2 operator*(float scalar);
 		jVector2 operator/(float scalar);
+		
+		jVector2 operator-(); // negation operator
+		
 		// Aritmetic Operations (non-operators)
 		jVector2 normalized();
-		float cross(jVector2 &vector) const;
-		float dot(jVector2 &vector) const;
+		float cross(jVector2 vector) const;
+		float dot(jVector2 vector) const;
 		float magnitude_sqr() const;
 		virtual std::string toString();
 		virtual int hashCode();
