@@ -98,14 +98,16 @@ class jCMatrix2x2 : public jMatrix2x2
 	public:
 		jCMatrix2x2();
 		jCMatrix2x2(float matrix[4]);
-		jCMatrix2x2(float m00, float m01,
-					float m10, float m11);
+		jCMatrix2x2(float a, float c,
+					float b, float d);
 		jCMatrix2x2(jVector2 col1, jVector2 col2);
-		jCMatrix2x2(jCMatrix2x2 &matrix);
+		jCMatrix2x2(const jCMatrix2x2 &matrix);
 		virtual ~jCMatrix2x2();
 
 		virtual float determinant();
 		virtual bool hasInverse();
+
+		jCMatrix2x2 inverse();
 
 		jCMatrix2x2 operator*(float scalar);
 		jCMatrix2x2 operator*(jCMatrix2x2 &matrix);
@@ -113,7 +115,13 @@ class jCMatrix2x2 : public jMatrix2x2
 		jCMatrix2x2 operator+(jCMatrix2x2 &matrix);
 		jCMatrix2x2 operator-(jCMatrix2x2 &matrix);
 
-		jCMatrix2x2 operator=(jCMatrix2x2 &matrix);
+		jCMatrix2x2 operator=(const jCMatrix2x2 &matrix);
+
+		jCMatrix2x2 operator-();
+		jCMatrix2x2 operator/(float scalar);
+
+		jVector2 operator[](int index) const;
+		jVector2 operator()(int index) const;
 };
 /*
 // Row Major 3x3 Matrix
