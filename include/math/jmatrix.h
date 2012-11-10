@@ -123,17 +123,20 @@ class jCMatrix2x2 : public jMatrix2x2
 		jVector2 operator[](int index) const;
 		jVector2 operator()(int index) const;
 };
-/*
-// Row Major 3x3 Matrix
 class jMatrix3x3 : public jObject
 {
 	public:
+		~jMatrix3x3();
+
+		virtual float determinant() = 0;
+		virtual bool hasInverse() = 0;
+
 		virtual std::string toString();
 		virtual int hashCode();
 	private:
-		float* mMatrix;
+		jVector3* mMatrix;
 };
-
+/*
 // Row Major 4x4 Matrix
 class jMatrix4x4 : public jObject
 {
